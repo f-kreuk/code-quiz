@@ -17,7 +17,6 @@ To use this website, simply select Start and select the best answer to each ques
 
 ## Credits
 
-
 For the css reset, I utilized the sample provided in 28-Stu_Mini-Project through the UCONN coding bootcamp.
 
 ## License

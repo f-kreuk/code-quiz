@@ -1,0 +1,68 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  background-color: #f9fbfd;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  padding-top: 0px;
+  color: hsl(206, 17%, 28%);
+}
+
+h1 {
+    font: 2rem sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    background-color: #f9fbfd;
+    color: hsl(206, 17%, 28%); 
+}
+
+p {
+    font: 1rem sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: #f9fbfd;
+    color: hsl(206, 17%, 28%); 
+  }
+
+  button {
+    font: 1.5rem sans-serif;
+    text-align: center;
+    margin-top: 2rem;
+    background-color: hsl(255, 60%, 24%);
+    border-radius: 1rem;
+    height: 4rem;
+    width: 10rem;
+    color: #f9fbfd; 
+    left: 50%;
+  }
+
+  .landing-page {
+    text-align: center;
+  }
+
+  @media (max-width: 690px) {
+    .btn {
+      font-size: 1rem;
+      margin: 16px 0px 0px 0px;
+      padding: 10px 15px;
+    }
+  
+    #password {
+      font-size: 1rem;
+    }
+  }
+  
+  @media (max-width: 500px) {
+    .btn {
+      font-size: 0.8rem;
+    }
+  }
