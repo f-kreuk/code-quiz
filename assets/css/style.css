@@ -1,3 +1,17 @@
+:root {
+    --orange: #ef622a;
+    --darkblue: #3d5ab8;
+    --heliotrope: #faecec;
+    --bone: #fafafa;
+    --grey: rgb(233, 231, 231);
+    --darkgrey: rgb(52, 52, 53);
+  }
+
+  ::selection {
+    background-color: var(--orange);
+    color: var(--bone);
+  }
+
 *,
 *::before,
 *::after {
@@ -6,14 +20,53 @@
 
 body {
   font-family: sans-serif;
-  background-color: #f9fbfd;
+  background-color: var(--bone);
 }
 
 header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--darkblue);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-bottom: 0.625rem;
+  color: var(--heliotrope);
+  font-weight: 750;
+  line-height: 1.1;
+  font: sans-serif;
+  color: var(--darkgrey);
+}
+
+h1 {font-size: 2rem;
+    font: 2rem sans-serif;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 2rem;
+    background-color: var(--bone);
+    color: var(--darkgrey); }
+
+h2 {font-size: 1.75rem;
+    color: var(--darkgrey); }
+
+h3 {font-size: 1rem;}
+
+h4 {font-size: .75rem;}
+
+h5 {font-size: .5rem;}
+
+p {margin-bottom: 1rem;
+    font: 1rem sans-serif;
+    text-align: center;
+    margin-top: 1rem;
+    background-color: var(--bone);
+    color: var(--darkgrey); 
 }
 
 h1 {
@@ -21,24 +74,24 @@ h1 {
     font-weight: bold;
     text-align: center;
     margin-top: 2rem;
-    background-color: #f9fbfd;
-    color: hsl(206, 17%, 28%); 
+    background-color: var(--bone);
+    color: var(--darkgrey); 
 }
 
-p {
-    font: 1rem sans-serif;
-    text-align: center;
-    margin-top: 1rem;
-    background-color: #f9fbfd;
-    color: hsl(206, 17%, 28%); 
-  }
+  .headercontainer {
+    display:flex;
+    justify-content:space-between;
+    align-items:center; 
+    color: var(--heliotrope);
+    transition: all 0.5s ease-in-out;
+}
 
   button {
     font: 1.5rem sans-serif;
     text-align: center;
     margin-top: 2rem;
-    background-color: hsl(255, 60%, 24%);
-    border: hsl(255, 60%, 24%);
+    background-color: var(--orange);
+    border: var(--orange);
     border-radius: 1rem;
     height: 4rem;
     width: 10rem;
@@ -47,13 +100,36 @@ p {
   }
 
   .button:hover {
-    background-color: hsl(298, 62%, 41%);
-    border-color: hsl(298, 62%, 41%);
+    background-color: var(--darkblue);
+    border-color: var(--darkblue);
   }
+
+.large-font-timer-count {
+    margin-bottom: 0.625rem;
+    color: var(--heliotrope);
+    font-weight: 750;
+    line-height: 1.1;
+    font: sans-serif;
+    color: var(--darkgrey);
+    font-size: 1rem;
+}
 
   .landing-page {
     text-align: center;
   }
+
+.high-scores {
+    text-align: left;
+    margin-top: .5rem;
+    font: 1rem sans-serif;
+}
+
+.card-timer {
+    display: inline;
+    margin-top: .5rem;
+    text-align: right;
+}
+
 
   @media (max-width: 690px) {
     .btn {
