@@ -175,6 +175,11 @@ margin: auto;
   color: var(--darkgrey); 
 }
 
+/* Styling for the correct/incorrect text*/
+#answer {
+  margin-bottom: .5rem;
+}
+
   @media (max-width: 690px) {
     .btn {
       font-size: 1rem;

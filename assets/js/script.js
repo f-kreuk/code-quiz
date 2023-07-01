@@ -10,6 +10,12 @@ const answerEl = document.getElementById('answer');
 const Correctanswer = "Correct";
 const Incorrectanswer = "Incorrect";
 
+//Timer variables
+const timerEl = document.querySelector("#timer");
+var interval;
+var totalTime = 45;
+var secondsElapsed = 0;
+
 //Using let, so these variables can be reassigned later
 let randomQuestions, currentQuestion;
 let score = 0;
@@ -23,9 +29,31 @@ nextbtn.addEventListener('click', () => {
     nextQuestion();
 })
 
+//this starts the timer function
+function startTimer() {
+    timerEl.textContent = totalTime;
+    interval = setInterval(function () {
+        secondsElapsed++;
+        timerEl.textContent = totalTime - secondsElapsed;
+        if (secondsElapsed >= totalTime) {
+            startbtn.innerText = "Restart";
+            allDoneEl.classList.remove('hide');
+            resetState();
+            questionEl.classList.add('hide');
+            stopTimer();
+            timerEl.textContent = 0;
+        }
+    }, 1000);
+}
 
-//---------------------------------------------------------------------//
+//this stops the timer function
+function stopTimer() {
+    clearInterval(interval);
+}
+
 function startQuiz() {
+//runs the startTimer function
+startTimer();
 //console.log('Started')
 //hides the start button after it is selected
 startbtn.classList.add('hide')
@@ -40,7 +68,8 @@ questionsEl.classList.remove('hide')
 //calls the nextQuestion function
 nextQuestion()
 }
-//---------------------------------------------------------------------//
+
+
 //calls reset function and show question function
 function nextQuestion() {
     resetState()
@@ -78,28 +107,25 @@ function resetState () {
     alreadyAnswered = false;
     answerEl.classList.add('hide');
 }
-//---------------------------------------------------------------------//
+
 //Below function checks if the answer selection is correct and assigns 10 points for a correct value
 
 function answerQuestion(e) {    
     const answerSelection = e.target;
     const correct = answerSelection.dataset.correct;
     alreadyAnswered = true;
-    if (correct) {
-        var total = score;
-        var points = 10;
-        console.log(points);
-        
+    if (correct) {      
         answerEl.innerText = Correctanswer;
         answerEl.classList.remove('hide');
+        score += 5;
+        console.log(score);
         //below adds Correct before the helptext html
             } else {
-            var total = score;
-            var points = 0;
             //below adds Incorrect before the helptext html
             console.log("Incorrect")
             answerEl.innerText = Incorrectanswer;
             answerEl.classList.remove('hide');
+            secondsElapsed += 10;
         };
         if (randomQuestions.length > currentQuestion + 1) {
             //this makes the next button appear after the selection
@@ -112,6 +138,12 @@ function answerQuestion(e) {
             allDoneEl.classList.remove('hide');
             resetState();
             questionEl.classList.add('hide');
+            stopTimer();
+            timerEl.textContent = 0;
+            let finalScore = 0;
+            let timeRemaining = totalTime - secondsElapsed;
+            finalScore = score + timeRemaining;
+            console.log(score);
 
         }
     }
