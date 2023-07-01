@@ -25,7 +25,6 @@ body {
   background-color: var(--bone);
   padding: 0;
   margin: 0;
-  display: flex;
   justify-content: center;
 }
 
@@ -136,10 +135,10 @@ h1 {
 
   /* Styling for our questions and answers container*/
 .container {
-width: 400px;
+width: 800px;
 max-width: 80%;
 padding: 15px;
-
+margin: auto;
 }
 
   /* Stacks answers on top of each other*/
@@ -156,7 +155,7 @@ padding: 15px;
 }
 
 .controls {
-
+  display: flex;
   justify-content: center;
   align-items: center;
 }

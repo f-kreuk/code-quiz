@@ -4,6 +4,7 @@ const startbtn = document.getElementById('start-btn')
 const questionsEl = document.getElementById('question-container')
 const questionEl = document.getElementById('question')
 const answerbtnEl = document.getElementById('answer-buttons')
+const landingEl = document.getElementById('landing-page')
 
 
 //Using let, so these variables can be reassigned later
@@ -14,17 +15,24 @@ let randomQuestions, currentQuestion
 startbtn.addEventListener('click',startQuiz)
 
 
-
+//---------------------------------------------------------------------//
 function startQuiz() {
 //console.log('Started')
 //hides the start button after it is selected
 startbtn.classList.add('hide')
+//hides the landing-page after the start button selected
+landingEl.classList.add('hide')
 //this sorts the questions in the array randomly
 randomQuestions = questions.sort(() => Math.random() - .5)
 currentQuestion = 0
+//removes the hide class from the questions
+questionsEl.classList.remove('hide')
 //calls the nextQuestion function
 nextQuestion()
 }
+//---------------------------------------------------------------------//
+
+
 
 function nextQuestion() {
     showQuestion(randomQuestions[currentQuestion])
