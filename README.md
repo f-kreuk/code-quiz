@@ -16,8 +16,14 @@ N/A
 To use this website, simply select Start and select the best answer to each questions. 
 
 ## Credits
-
 For the css reset, I utilized the sample provided in 28-Stu_Mini-Project through the UCONN coding bootcamp.
+
+I utilized the following YouTube tutorial as the primary guide to this exercise:
+https://www.youtube.com/watch?app=desktop&v=riDzcEQbX6k
+
+I utilized the following forum to add text before or after an HTML element (add correct/incorrect to helptext):
+https://stackoverflow.com/questions/7378097/add-text-before-or-after-an-html-element
+
 
 ## License
 Please refer to the LICENSE in repo.

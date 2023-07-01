@@ -165,6 +165,14 @@ margin: auto;
   display: none;
 }
 
+/* Styling for my Questions*/
+
+#question {
+  font: 1.5rem sans-serif;
+  font-weight: bold;
+  margin-top: 2rem;
+  color: var(--darkgrey); 
+}
 
   @media (max-width: 690px) {
     .btn {
