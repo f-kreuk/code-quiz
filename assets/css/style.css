@@ -5,6 +5,7 @@
     --bone: #fafafa;
     --grey: rgb(233, 231, 231);
     --darkgrey: rgb(52, 52, 53);
+    --darkorange: #69270d;
   }
 
   ::selection {
@@ -16,11 +17,16 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  font-family: sans-serif;
 }
 
 body {
   font-family: sans-serif;
   background-color: var(--bone);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
 }
 
 header {
@@ -89,6 +95,8 @@ h1 {
     margin-top: 1rem;
 }
 
+/* Below puts the high scores and timer on same line but justified to left and right, respectively.*/
+
 .header-1 {
   text-align: left; 
   width:49%; 
@@ -101,14 +109,14 @@ h1 {
   display: inline-block;
 }
 
-
+/* Below is styling applied to all.*/
 
   button {
     font: 1.5rem sans-serif;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: .5rem;
     background-color: var(--orange);
-    border: var(--orange);
+    border: var(--darkorange);
     border-radius: 1rem;
     height: 4rem;
     width: 10rem;
@@ -119,32 +127,43 @@ h1 {
   .button:hover {
     background-color: var(--darkblue);
     border-color: var(--darkblue);
+    border: 1px solid var(--darkorange);
   }
-
-.large-font-timer-count {
-    margin-bottom: 0.625rem;
-    color: var(--heliotrope);
-    font-weight: 750;
-    line-height: 1.1;
-    font: sans-serif;
-    color: var(--darkgrey);
-    font-size: 1rem;
-}
 
   .landing-page {
     text-align: center;
   }
 
-.high-scores {
-    text-align: left;
-    margin-top: .5rem;
-    font: 1rem sans-serif;
+  /* Styling for our questions and answers container*/
+.container {
+width: 400px;
+max-width: 80%;
+padding: 15px;
+
 }
 
-.card-timer {
-    display: inline;
-    margin-top: .5rem;
-    text-align: right;
+  /* Stacks answers on top of each other*/
+  .answer-grid {
+    display: grid;
+    margin: 20px 0;
+  }
+
+/* Styling for the Start and Next buttons*/
+.start-button, .next-button {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+.controls {
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* */
+.hide {
+  display: none;
 }
 
 

@@ -7,6 +7,7 @@
     <title>Code Quiz</title>
     <link rel="stylesheet" href="./assets/css/reset.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
+    <script defer src="./assets/js/script.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -16,7 +17,7 @@
     <header>
         <div class="headercontainer">
           <div class="row">  
-            <div class="header-1 h2" id="viewHScores">View Highscores</div>
+            <div class="header-1 h2" id="viewHighScores">View Highscores</div>
             <div class="header-2 h2">Time: <span id="timer">0</span></div>
           </div>
         </div>
@@ -37,15 +38,15 @@
 <div class="container">
   <div id="question-container" class="hide"></div>
     <div id="question">Question</div>
-    <div id="answer-buttons" class="btn-grid">
-        <button class="btn">Answer 1</button>
-        <button class="btn">Answer 2</button>
-        <button class="btn">Answer 3</button>
-        <button class="btn">Answer 4</button>
+    <div id="answer-buttons" class="answer-grid">
+        <button class="button">Answer 1</button>
+        <button class="button">Answer 2</button>
+        <button class="button">Answer 3</button>
+        <button class="button">Answer 4</button>
     </div>
   <div class="controls">
-    <button id="start-btn" class="start-btn btn">Start Quiz</button>
-    <button id="next-btn" class="next-btn btn">Next</button>
+    <button id="start-btn" class="start-button button">Start</button>
+    <button id="next-btn" class="next-button button hide">Next</button>
   </div>
 </div>
 
