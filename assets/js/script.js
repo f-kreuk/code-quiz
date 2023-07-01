@@ -7,14 +7,20 @@ const landingEl = document.getElementById('landing-page');
 const helptextEl = document.getElementById('help-text');
 const allDoneEl = document.getElementById('allDone');
 const answerEl = document.getElementById('answer');
+const submitbtn = document.getElementById('submit');
 const Correctanswer = "Correct";
 const Incorrectanswer = "Incorrect";
+const scoreinputEl = document.querySelector("#score");
+const initialsEl = document.querySelector("#initials");
+const submitInitialsBtnEl = document.querySelector("#submit");
+const userScoreEl = document.querySelector("#score");
 
 //Timer variables
 const timerEl = document.querySelector("#timer");
 var interval;
 var totalTime = 45;
 var secondsElapsed = 0;
+var highScore = [];
 
 //Using let, so these variables can be reassigned later
 let randomQuestions, currentQuestion;
@@ -151,6 +157,21 @@ function answerQuestion(e) {
 function setStatusClass(element, correct) {
     clearStatus
 }
+
+//This section lets user submit their initials and score to local storage
+submitbtn.addEventListener('click', function() {
+    let initValue = initialsEl.value.trim();
+    if (initValue) {
+        let userScore = { username: initValue, userScore: score };
+        initialsEl.value = '';
+        highScores = JSON.parse(localStorage.getItem("scores")) || [];
+        highScores.push(userScore)
+        localStorage.setItem("scores", JSON.stringify(highScores));
+        hide(inputScoreEl);
+        renderHighScores();
+        reset();
+    }
+})
 
 
 const questions = [

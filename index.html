@@ -53,17 +53,26 @@
   </div>
 </div>
 
+<!-- Below is the all done page where you can submit high score-->
+
+<div class="allDoneContainer">
 <div id="allDone" class="hide">
   <h1>All done!</h1>
   <p>Your final score is <span id="score"></span>.<br>
     <p class="initials">Enter initials: <input type="text" id="initials"></p>
-    <button type="button" class="button" id="submit">Submit</button>
+    <button type="button" class="submit-button button" id="submit">Submit</button>
+</div>
+</div>
+
+<!-- Below is the page to view your leaderboard -->
+<div class="leaderboard-container hide" id="scoreboard">
+  <h1>Leaderboard</h1>
+  <div id="scores"> </div>
+  <button type="button" id="Back">Go Back</button>
+  <button type="button" id="clear">Clear Scores</button>
 </div>
 
     
-    
-
-
     <!-- The following div contains the quiz -->
 
     <script src="./assets/js/script.js"></script>

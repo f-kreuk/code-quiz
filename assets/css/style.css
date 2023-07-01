@@ -146,10 +146,11 @@ margin: auto;
   .answer-grid {
     display: grid;
     margin: 20px 0;
+    min-width: 200px;
   }
 
 /* Styling for the Start and Next buttons*/
-.start-button, .next-button {
+.start-button, .next-button, {
   font-size: 2rem;
   font-weight: bold;
   padding: 10px 20px;
@@ -161,9 +162,37 @@ margin: auto;
   align-items: center;
 }
 
-/* */
+/* hides sections when applied*/
 .hide {
   display: none;
+}
+
+/* styling for the button on allDone page*/
+.allDoneContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.submit-button {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px 20px;
+}
+
+/* styling for the buttons on High Scores page*/
+
+.leaderboard-container {
+  width: 800px;
+  max-width: 80%;
+  padding: 15px;
+  margin: auto;
+}
+
+.Back, .clear {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 10px 20px;
 }
 
 /* Styling for my Questions*/
