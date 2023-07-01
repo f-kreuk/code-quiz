@@ -5,6 +5,10 @@ const questionEl = document.getElementById('question');
 const answerbtnEl = document.getElementById('answer-buttons');
 const landingEl = document.getElementById('landing-page');
 const helptextEl = document.getElementById('help-text');
+const allDoneEl = document.getElementById('allDone');
+const answerEl = document.getElementById('answer');
+const Correctanswer = "Correct";
+const Incorrectanswer = "Incorrect";
 
 //Using let, so these variables can be reassigned later
 let randomQuestions, currentQuestion;
@@ -15,7 +19,8 @@ let alreadyAnswered = false;
 // When you click the start button, the startQuiz function runs
 startbtn.addEventListener('click',startQuiz)
 nextbtn.addEventListener('click', () => {
-    currentQuestion++
+    currentQuestion++;
+    nextQuestion();
 })
 
 
@@ -69,7 +74,9 @@ function resetState () {
         answerbtnEl.removeChild 
         (answerbtnEl.firstChild)
     };
+    helptextEl.classList.add('hide');
     alreadyAnswered = false;
+    answerEl.classList.add('hide');
 }
 //---------------------------------------------------------------------//
 //Below function checks if the answer selection is correct and assigns 10 points for a correct value
@@ -82,23 +89,31 @@ function answerQuestion(e) {
         var total = score;
         var points = 10;
         console.log(points);
+        
+        answerEl.innerText = Correctanswer;
+        answerEl.classList.remove('hide');
         //below adds Correct before the helptext html
-        var text = document.createTextNode('Correct');
-        var child = document.getElementById("help-text");
-        child.parentNode.insertBefore(text,child);
             } else {
             var total = score;
             var points = 0;
             //below adds Incorrect before the helptext html
-            var text = document.createTextNode('Incorrect');
-            var child = document.getElementById("help-text");
-            child.parentNode.insertBefore(text,child);
             console.log("Incorrect")
+            answerEl.innerText = Incorrectanswer;
+            answerEl.classList.remove('hide');
         };
-        //this makes the next button appear after the selection
-        nextbtn.classList.remove('hide')
-        //this makes the helptext appear after the selection
-        helptextEl.classList.remove('hide');
+        if (randomQuestions.length > currentQuestion + 1) {
+            //this makes the next button appear after the selection
+            nextbtn.classList.remove('hide')
+            //this makes the helptext appear after the selection
+            helptextEl.classList.remove('hide');
+        //after last question, we get the AllDone div and remove the container and its elements by using resetState
+        } else {
+            startbtn.innerText = "Restart";
+            allDoneEl.classList.remove('hide');
+            resetState();
+            questionEl.classList.add('hide');
+
+        }
     }
 
 function setStatusClass(element, correct) {
@@ -151,7 +166,7 @@ const questions = [
         question: 'What are the three manipulations performed in a for loop?',
         answers: [
             { text: 'Testing, Updating, Testing', correct: false},
-            { text: 'Initialization, Incremtation, Updation', correct: false},
+            { text: 'Initialization, Incrementation, Updation', correct: false},
             { text: 'Initialization, Testing, Updation', correct: true},
             { text: 'Updation, Testing, Initialization', correct: false},
         ],

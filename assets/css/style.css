@@ -118,7 +118,8 @@ h1 {
     border: var(--darkorange);
     border-radius: 1rem;
     height: 4rem;
-    width: 10rem;
+    width: auto;
+    width: 50%;
     color: #f9fbfd; 
     left: 50%;
   }
