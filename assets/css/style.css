@@ -212,6 +212,8 @@ margin: auto;
 /* Styling for the correct/incorrect text*/
 #answer {
   margin-bottom: .5rem;
+  border-top: solid var(--darkgrey);
+  padding-top: .5rem;
 }
 
 
