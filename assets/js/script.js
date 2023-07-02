@@ -14,13 +14,18 @@ const scoreinputEl = document.querySelector("#score");
 const initialsEl = document.querySelector("#initials");
 const submitInitialsBtnEl = document.querySelector("#submit");
 const userScoreEl = document.querySelector("#score");
+const leaderboardEl = document.querySelector("#scoreboard");
+const scoresEl = document.querySelector("#scores");
+const backbtnEl = document.querySelector("#back");
+const clearbtnEl = document.querySelector("#clear");
+
 
 //Timer variables
 const timerEl = document.querySelector("#timer");
 var interval;
 var totalTime = 45;
 var secondsElapsed = 0;
-var highScore = [];
+var leaderboard = [];
 
 //Using let, so these variables can be reassigned later
 let randomQuestions, currentQuestion;
@@ -28,14 +33,16 @@ let score = 0;
 let alreadyAnswered = false;
 
 
-// When you click the start button, the startQuiz function runs
-startbtn.addEventListener('click',startQuiz)
+// When you click the start button, the startQuiz function runs.
+// When you click the next button, you get the next question.
+// When you click the submit button, you get the high scores.
+startbtn.addEventListener('click',startQuiz);
 nextbtn.addEventListener('click', () => {
     currentQuestion++;
     nextQuestion();
-})
+});
 
-//this starts the timer function
+//this starts the timer function, launches the allDone page, and hides any other pages you were on
 function startTimer() {
     timerEl.textContent = totalTime;
     interval = setInterval(function () {
@@ -158,20 +165,38 @@ function setStatusClass(element, correct) {
     clearStatus
 }
 
+
+
 //This section lets user submit their initials and score to local storage
 submitbtn.addEventListener('click', function() {
     let initValue = initialsEl.value.trim();
     if (initValue) {
         let userScore = { username: initValue, userScore: score };
         initialsEl.value = '';
-        highScores = JSON.parse(localStorage.getItem("scores")) || [];
-        highScores.push(userScore)
-        localStorage.setItem("scores", JSON.stringify(highScores));
-        hide(inputScoreEl);
-        renderHighScores();
+        leaderboard = JSON.parse(localStorage.getItem("scores")) || [];
+        leaderboard.push(userScore)
+        localStorage.setItem("scores", JSON.stringify(leaderboard));
+        showLeaderboard();
         reset();
-    }
+    };
 })
+
+//Shows the leaderboard when the submit button is pushed
+function showLeaderboard() {
+    allDoneEl.classList.add('hide');
+    leaderboardEl.classList.remove('hide');
+    scoresEl.innerHTML = "";
+    leaderboard = JSON.parse(localStorage.getItem("scores"));
+    for (let i = 0; i < leaderboard.length; i++) {
+        let boarditem = document.createElement("div");
+        boarditem.className += "leaderboardelements";
+        boarditem.textContent = `${leaderboard[i].username} - ${leaderboard[i].userScore}`;
+        scoresEl.appendChild(boarditem);
+    };
+    boarditem.sort((userScore, username) => username - userScore);
+    let highest = boarditem[0];
+
+}
 
 
 const questions = [

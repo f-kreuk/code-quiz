@@ -209,6 +209,20 @@ margin: auto;
   margin-bottom: .5rem;
 }
 
+
+/* Styling for the leaderboard elements*/
+.leaderboardelements {
+  background-color: var(--darkblue);
+  border-radius: 5px;
+  color: var(--bone);
+  text-align: center;
+  justify-content: center;
+  margin: .5rem;
+  margin-left: 25%;
+  margin-right: 25%;
+  height: 1.5rem;
+}
+
   @media (max-width: 690px) {
     .btn {
       font-size: 1rem;
