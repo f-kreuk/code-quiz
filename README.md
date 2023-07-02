@@ -37,7 +37,7 @@ https://stackoverflow.com/questions/7378097/add-text-before-or-after-an-html-ele
 I utilized the following tutorial for sorting my leaderboard:
 https://www.w3schools.com/jsref/jsref_sort.asp
 
-I utilzied the following resource for updating text in span tag:
+I utilized the following resource for updating text in span tag:
 https://www.geeksforgeeks.org/javascript-change-the-text-of-a-span-element/
 
 
