@@ -18,8 +18,7 @@ const leaderboardEl = document.querySelector("#scoreboard");
 const scoresEl = document.querySelector("#scores");
 const backbtnEl = document.querySelector("#back");
 const clearbtnEl = document.querySelector("#clear");
-
-
+const viewHighScores = document.querySelector("#viewHighScores");
 
 //Timer variables
 const timerEl = document.querySelector("#timer");
@@ -79,17 +78,17 @@ function startQuiz() {
 startTimer();
 //console.log('Started')
 //hides the start button after it is selected
-startbtn.classList.add('hide')
+startbtn.classList.add('hide');
 //hides the landing-page after the start button selected
-landingEl.classList.add('hide')
+landingEl.classList.add('hide');
 //this sorts the questions in the array randomly
-randomQuestions = questions.sort(() => Math.random() - .5)
+randomQuestions = questions.sort(() => Math.random() - .5);
 //sets the question to first in array
-currentQuestion = 0
+currentQuestion = 0;
 //removes the hide class from the questions
-questionsEl.classList.remove('hide')
+questionsEl.classList.remove('hide');
 //calls the nextQuestion function
-nextQuestion()
+nextQuestion();
 }
 
 
@@ -191,7 +190,7 @@ submitbtn.addEventListener('click', function() {
         leaderboard.push(userScore)
         localStorage.setItem("scores", JSON.stringify(leaderboard));
         showLeaderboard();
-        reset();
+        resetState();
     };
 })
 
@@ -210,6 +209,23 @@ function showLeaderboard() {
     boarditem.sort((userScore, username) => username - userScore);
     let highest = boarditem[0];
 }
+
+
+//Shows the leaderboard when the "View High Scores" header button is selected
+
+viewHighScores.addEventListener("click", function() {
+    showLeaderboard();
+    resetState();
+    hideElements();
+    stopTimer();
+})
+
+function hideElements() {
+    allDoneEl.classList.add('hide');
+    landingEl.classList.add('hide');
+    startbtn.classList.add('hide');
+}
+
 
 
 const questions = [
