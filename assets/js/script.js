@@ -16,19 +16,20 @@ const submitInitialsBtnEl = document.querySelector("#submit");
 const userScoreEl = document.querySelector("#score");
 const leaderboardEl = document.querySelector("#scoreboard");
 const scoresEl = document.querySelector("#scores");
-const backbtnEl = document.querySelector("#back");
-const clearbtnEl = document.querySelector("#clear");
+const backbtn = document.getElementById('back');
+const clearbtn = document.getElementById('clear');
 const viewHighScores = document.querySelector("#viewHighScores");
+const header2El = document.getElementById("#header-2-id");
 
 //Timer variables
 const timerEl = document.querySelector("#timer");
 var interval;
-var totalTime = 45;
-var secondsElapsed = 0;
 var leaderboard = [];
 
 //Using let, so these variables can be reassigned later
 let randomQuestions, currentQuestion;
+let totalTime = 45;
+let secondsElapsed = 0;
 let score = 0;
 let alreadyAnswered = false;
 let span = document.getElementById("score_span");
@@ -41,21 +42,35 @@ nextbtn.addEventListener('click', () => {
     currentQuestion++;
     nextQuestion();
 });
+backbtn.addEventListener('click',launchstart);
+
+// This brings you back to the start landing page
+function launchstart() {
+    startbtn.classList.remove('hide');
+    landingEl.classList.remove('hide');
+    leaderboardEl.classList.add('hide');
+    viewHighScores.classList.remove('hide');
+}
 
 //this starts the timer function, launches the allDone page, and hides any other pages you were on
 function startTimer() {
+    totalTime = 45;
+    secondsElapsed = 0;
     timerEl.textContent = totalTime;
+    questionEl.classList.remove('hide');
+    viewHighScores.classList.add('hide');
     interval = setInterval(function () {
         secondsElapsed++;
         timerEl.textContent = totalTime - secondsElapsed;
         if (secondsElapsed >= totalTime) {
-            startbtn.innerText = "Restart";
+            startbtn.innerText = "Try Again";
             allDoneEl.classList.remove('hide');
             resetState();
             questionEl.classList.add('hide');
             showScore();
             stopTimer();
             timerEl.textContent = 0;
+            header2El.classList.add('hide');
         }
     }, 1000);
 }
@@ -87,6 +102,7 @@ randomQuestions = questions.sort(() => Math.random() - .5);
 currentQuestion = 0;
 //removes the hide class from the questions
 questionsEl.classList.remove('hide');
+score = 0;
 //calls the nextQuestion function
 nextQuestion();
 }
@@ -159,16 +175,12 @@ function answerQuestion(e) {
             helptextEl.classList.remove('hide');
         //after last question, we get the AllDone div and remove the container and its elements by using resetState
         } else {
-            startbtn.innerText = "Restart";
+            startbtn.innerText = "Try Again";
             allDoneEl.classList.remove('hide');
             resetState();
             questionEl.classList.add('hide');
             stopTimer();
             timerEl.textContent = 0;
-            let finalScore = 0;
-            let timeRemaining = totalTime - secondsElapsed;
-            finalScore = score + timeRemaining;
-            console.log(score);
             showScore();
 
         }
@@ -187,7 +199,7 @@ submitbtn.addEventListener('click', function() {
         let userScore = { username: initValue, userScore: score };
         initialsEl.value = '';
         leaderboard = JSON.parse(localStorage.getItem("scores")) || [];
-        leaderboard.push(userScore)
+        leaderboard.push(userScore);
         localStorage.setItem("scores", JSON.stringify(leaderboard));
         showLeaderboard();
         resetState();
@@ -214,17 +226,13 @@ function showLeaderboard() {
 //Shows the leaderboard when the "View High Scores" header button is selected
 
 viewHighScores.addEventListener("click", function() {
+    startbtn.classList.add('hide');
+    landingEl.classList.add('hide');
     showLeaderboard();
     resetState();
-    hideElements();
     stopTimer();
 })
 
-function hideElements() {
-    allDoneEl.classList.add('hide');
-    landingEl.classList.add('hide');
-    startbtn.classList.add('hide');
-}
 
 
 

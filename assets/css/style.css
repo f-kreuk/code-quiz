@@ -29,8 +29,7 @@ body {
 }
 
 header {
-  text-align: center;
-  padding: 20px;
+  padding: 5px;
   padding-top: 0px;
   color: var(--darkblue);
 }
@@ -53,7 +52,7 @@ h1 {font-size: 2rem;
     font: 2rem sans-serif;
     font-weight: bold;
     text-align: center;
-    margin-top: 2rem;
+    margin-top: 1rem;
     background-color: var(--bone);
     color: var(--darkgrey); }
 
@@ -97,13 +96,18 @@ h1 {
 /* Below puts the high scores and timer on same line but justified to left and right, respectively.*/
 
 .header-1 {
-  text-align: left; 
+  text-align: right; 
   width:49%; 
   display: inline-block;
 }
 
+.header-1:hover {
+  color: var(--darkblue);
+  font-weight: bolder;
+}
+
 .header-2 {
-  text-align: right; 
+  text-align: left; 
   width:50%;  
   display: inline-block;
 }
@@ -111,7 +115,7 @@ h1 {
 /* Below is styling applied to all.*/
 
   button {
-    font: 1.5rem sans-serif;
+    font: 1.25rem sans-serif;
     text-align: center;
     margin-top: .5rem;
     background-color: var(--orange);
@@ -188,8 +192,6 @@ margin: auto;
   max-width: 80%;
   padding: 15px;
   margin: auto;
-  margin-left: 25%;
-  margin-right: 25%;
 }
 
 .Back, .clear {
@@ -221,13 +223,20 @@ margin: auto;
   text-align: center;
   justify-content: center;
   margin: .5rem;
-  margin-right: 50%;
+  margin-right: 25%;
+  margin-left:25%;
   height: 1.5rem;
 }
 
 .leaderheader {
-  margin-right: 50%;
+  align-content: center;
 }
+
+.back-button, .clear-button {
+  margin-left: 25%;
+}
+
+
 
   @media (max-width: 690px) {
     .btn {
