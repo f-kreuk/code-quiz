@@ -52,6 +52,13 @@ function launchstart() {
     viewHighScores.classList.remove('hide');
 }
 
+// This clears the local storage
+clearbtn.addEventListener('click',clearstorage);
+function clearstorage() {
+    localStorage.clear();
+    showLeaderboard();
+}
+
 //this starts the timer function, launches the allDone page, and hides any other pages you were on
 function startTimer() {
     totalTime = 45;
