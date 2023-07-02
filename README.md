@@ -5,7 +5,10 @@ This website was created Florian Kreuk as part of the UCONN Coding Bootcamp modu
 
 The following image demonstrates the web application's appearence:
 
-![web application appearance](./assets/images/...to-be added)
+![web application appearance](./assets/images/JS-Quiz-1.PNG)
+![web application appearance](./assets/images/JS-Quiz-2.PNG)
+![web application appearance](./assets/images/JS-Quiz-3.PNG)
+![web application appearance](./assets/images/JS-Quiz-4.PNG)
 
 The following link takes you to the deployed application: [link](https://f-kreuk.github.io/code-quiz/)
 
