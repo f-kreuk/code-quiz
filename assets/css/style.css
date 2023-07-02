@@ -212,8 +212,17 @@ margin: auto;
 /* Styling for the correct/incorrect text*/
 #answer {
   margin-bottom: .5rem;
-  border-top: solid var(--darkgrey);
+  border-top: solid var(--grey);
   padding-top: .5rem;
+  color: var(--darkgrey);
+  opacity: 75%;
+  font-style: italic;
+}
+
+#help-text {
+  color: var(--darkgrey);
+  opacity: 75%;
+  font-style: italic;
 }
 
 
