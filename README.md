@@ -24,6 +24,12 @@ https://www.youtube.com/watch?app=desktop&v=riDzcEQbX6k
 I utilized the following forum to add text before or after an HTML element (add correct/incorrect to helptext):
 https://stackoverflow.com/questions/7378097/add-text-before-or-after-an-html-element
 
+I utilized the following tutorial for sorting my leaderboard:
+https://www.w3schools.com/jsref/jsref_sort.asp
+
+I utilzied the following resource for updating text in span tag:
+https://www.geeksforgeeks.org/javascript-change-the-text-of-a-span-element/
+
 
 ## License
 Please refer to the LICENSE in repo.

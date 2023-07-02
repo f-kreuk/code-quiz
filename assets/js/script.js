@@ -20,6 +20,7 @@ const backbtnEl = document.querySelector("#back");
 const clearbtnEl = document.querySelector("#clear");
 
 
+
 //Timer variables
 const timerEl = document.querySelector("#timer");
 var interval;
@@ -31,7 +32,7 @@ var leaderboard = [];
 let randomQuestions, currentQuestion;
 let score = 0;
 let alreadyAnswered = false;
-
+let span = document.getElementById("score_span");
 
 // When you click the start button, the startQuiz function runs.
 // When you click the next button, you get the next question.
@@ -53,11 +54,20 @@ function startTimer() {
             allDoneEl.classList.remove('hide');
             resetState();
             questionEl.classList.add('hide');
+            showScore();
             stopTimer();
             timerEl.textContent = 0;
         }
     }, 1000);
 }
+
+//this shows the score on the allDone page
+function showScore() {
+    console.log('span ' + score );
+    span.innerText = score;
+    span.textContent = score;
+}
+
 
 //this stops the timer function
 function stopTimer() {
@@ -119,6 +129,7 @@ function resetState () {
     helptextEl.classList.add('hide');
     alreadyAnswered = false;
     answerEl.classList.add('hide');
+    showScore();
 }
 
 //Below function checks if the answer selection is correct and assigns 10 points for a correct value
@@ -127,12 +138,14 @@ function answerQuestion(e) {
     const answerSelection = e.target;
     const correct = answerSelection.dataset.correct;
     alreadyAnswered = true;
-    if (correct) {      
+    showScore();
+    if (correct) {  
+         //below adds Correct before the helptext html    
         answerEl.innerText = Correctanswer;
         answerEl.classList.remove('hide');
         score += 5;
         console.log(score);
-        //below adds Correct before the helptext html
+
             } else {
             //below adds Incorrect before the helptext html
             console.log("Incorrect")
@@ -157,6 +170,7 @@ function answerQuestion(e) {
             let timeRemaining = totalTime - secondsElapsed;
             finalScore = score + timeRemaining;
             console.log(score);
+            showScore();
 
         }
     }
@@ -195,7 +209,6 @@ function showLeaderboard() {
     };
     boarditem.sort((userScore, username) => username - userScore);
     let highest = boarditem[0];
-
 }
 
 

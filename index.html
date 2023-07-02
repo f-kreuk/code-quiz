@@ -58,7 +58,7 @@
 <div class="allDoneContainer">
 <div id="allDone" class="hide">
   <h1>All done!</h1>
-  <p>Your final score is <span id="score"></span>.<br>
+  <p>Your final score is <span id="score_span">0</span>.<br>
     <p class="initials">Enter initials: <input type="text" id="initials"></p>
     <button type="button" class="submit-button button" id="submit">Submit</button>
 </div>
@@ -66,7 +66,7 @@
 
 <!-- Below is the page to view your leaderboard -->
 <div class="leaderboard-container hide" id="scoreboard">
-  <h1>Leaderboard</h1>
+  <h1 class="leaderheader">Leaderboard</h1>
   <div id="scores"> </div>
   <button type="button" id="back">Go Back</button>
   <button type="button" id="clear">Clear Scores</button>

@@ -178,6 +178,7 @@ margin: auto;
   font-size: 2rem;
   font-weight: bold;
   padding: 10px 20px;
+  margin-left: 25%;
 }
 
 /* styling for the buttons on High Scores page*/
@@ -187,6 +188,8 @@ margin: auto;
   max-width: 80%;
   padding: 15px;
   margin: auto;
+  margin-left: 25%;
+  margin-right: 25%;
 }
 
 .Back, .clear {
@@ -218,9 +221,12 @@ margin: auto;
   text-align: center;
   justify-content: center;
   margin: .5rem;
-  margin-left: 25%;
-  margin-right: 25%;
+  margin-right: 50%;
   height: 1.5rem;
+}
+
+.leaderheader {
+  margin-right: 50%;
 }
 
   @media (max-width: 690px) {
